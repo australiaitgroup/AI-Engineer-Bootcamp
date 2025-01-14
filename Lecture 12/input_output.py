@@ -32,4 +32,4 @@ with gr.Blocks() as server:
 
   ask_button.click(ask, inputs=[model_input], outputs=[model_output])
 
-server.launch()
+server.launch(debug=True)

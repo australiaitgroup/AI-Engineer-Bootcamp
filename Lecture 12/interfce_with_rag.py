@@ -6,7 +6,7 @@ from sentence_transformers import SentenceTransformer
 import numpy as np
 import faiss
 
-client = InferenceClient("HuggingFaceH4/zephyr-7b-beta")
+client = InferenceClient("Intel/dynamic_tinybert")
 
 class MyApp:
     def __init__(self) -> None:
