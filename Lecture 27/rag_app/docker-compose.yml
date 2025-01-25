@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    pull_policy: always
+    tty: true
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./data/ollama:/root/.ollama
+      - ./start-ollama.sh:/start-ollama.sh
+    networks:
+      - ollama_network    
+    entrypoint: ["/bin/sh", "-c", "/start-ollama.sh"]
+      
+  flask-app:
+    build:
+      context: .
+    container_name: flask-langchain-app
+    environment:
+      - OLLAMA_BASE_URL=http://ollama:11434  # Using container name as hostname
+      - OLLAMA_HOST=ollama  # Explicitly set the Ollama host
+    ports:
+      - "8080:8080"
+    networks:
+      - ollama_network
+    depends_on:
+      - ollama
+
+networks:
+  ollama_network:
+    driver: bridge
