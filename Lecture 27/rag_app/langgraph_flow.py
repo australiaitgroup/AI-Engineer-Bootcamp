@@ -33,7 +33,7 @@ doc_splits = text_splitter.split_documents(docs_list)
 
 # Add to vectorDB
 def initialize_vectorstore(doc_splits):
-    persist_directory = "./chroma_db"
+    persist_directory = "chroma_db"
 
     if not os.path.exists(persist_directory):
         print("Chroma DB does not exist. Creating a new database...")
@@ -48,7 +48,7 @@ def initialize_vectorstore(doc_splits):
     else:
         print("Chroma DB exists. Loading from the existing database...")
         # Load the existing Chroma database
-        vectorstore = Chroma(persist_directory=persist_directory)
+        vectorstore = Chroma(persist_directory,OpenAIEmbeddings())
     
     return vectorstore.as_retriever()
 
