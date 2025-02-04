@@ -1,0 +1,22 @@
+[project]
+name = "linkedinai"
+version = "0.1.0"
+description = "linkedinai using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai[tools]>=0.83.0,<1.0.0",
+    "linkedin-api",
+    "duckduckgo-search"
+]
+
+[project.scripts]
+linkedinai = "linkedinai.main:run"
+run_crew = "linkedinai.main:run"
+train = "linkedinai.main:train"
+replay = "linkedinai.main:replay"
+test = "linkedinai.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

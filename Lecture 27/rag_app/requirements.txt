@@ -1,0 +1,10 @@
+langchain-community==0.3.15 
+tiktoken==0.8.0 
+langchainhub==0.1.21 
+chromadb==0.6.3 
+langchain==0.3.15
+langgraph==0.2.67 
+tavily-python==0.5.0
+langchain-openai==0.3.2
+beautifulsoup4==4.12.3
+langchain-ollama==0.2.0
