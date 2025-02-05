@@ -1,0 +1,7 @@
+langchain_community
+langchain_anthropic
+langchain_google_genai 
+langchain_experimental
+matplotlib
+langgraph
+python-dotenv
